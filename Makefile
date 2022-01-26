@@ -2,7 +2,7 @@ NAME	= fdf
 #
 SRCS	=	main.c \
 		./gnl/get_next_line.c \
-		./gnl/get_next_line_utils.c
+		./gnl/get_next_line_utils.c\
 #
 HEADER	= fdf.h
 #

@@ -1,4 +1,3 @@
-
 #ifndef FDF_H
 # define FDF_H
 
@@ -10,6 +9,9 @@
 # include "mlx/mlx.h"
 # include "gnl/get_next_line.h"
 
+# define WIDTH			1960.0
+# define HEIGHT			1280.0
+
 typedef struct s_data {
 	void	*img;
 	char	*addr;
@@ -19,7 +21,13 @@ typedef struct s_data {
 }				t_data;
 
 typedef struct s_fdf {
-	void		*mlx_ptr;
-	void		*win_ptr;
+	int		width;
+	int		height;
+	int		**z;
+
+	void	*mlx_ptr;
+	void	*win_ptr;
 }				t_fdf;
+
+void	read_file(char *file, t_fdf *data);
 #endif
