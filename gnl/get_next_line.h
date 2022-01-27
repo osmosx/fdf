@@ -22,7 +22,7 @@
 #  define BUFFER_SIZE 1
 # endif
 
-size_t	ft_strlen(char *s);
+size_t	ft_strlen(const char *s);
 char	*ft_strchr(const char *s, int c);
 char	*ft_strjoin(char *s1, char *s2);
 char	*ft_strcpy(char *dst, const char *src);

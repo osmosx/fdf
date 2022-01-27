@@ -23,11 +23,13 @@ typedef struct s_data {
 typedef struct s_fdf {
 	int		width;
 	int		height;
-	int		**z;
+	int		**matrix;
 
 	void	*mlx_ptr;
 	void	*win_ptr;
 }				t_fdf;
 
 void	read_file(char *file, t_fdf *data);
+char	**ft_split(char const *s, char c);
+int		ft_atoi(const char *str);
 #endif

@@ -3,6 +3,9 @@ NAME	= fdf
 SRCS	=	main.c \
 		./gnl/get_next_line.c \
 		./gnl/get_next_line_utils.c\
+		read_file.c\
+		ft_split.c\
+		ft_atoi.c
 #
 HEADER	= fdf.h
 #
