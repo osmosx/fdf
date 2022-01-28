@@ -1,15 +1,18 @@
 NAME	= fdf
 #
 SRCS	=	main.c \
-		./gnl/get_next_line.c \
-		./gnl/get_next_line_utils.c\
-		read_file.c\
-		ft_split.c\
-		ft_atoi.c
+			./gnl/get_next_line.c \
+			./gnl/get_next_line_utils.c \
+			read_file.c \
+			ft_split.c \
+			ft_atoi.c \
+			draw.c \
+			key_hook.c \
+			utils.c
 #
 HEADER	= fdf.h
 #
-FLAGS	= -Wall -Werror -Wextra -Lmlx -lmlx -framework OpenGL -framework AppKit
+FLAGS	= -Wall -Werror -Wextra -g -Lmlx -lmlx -framework OpenGL -framework AppKit
 #
 .PHONY : all clean fclean re
 #

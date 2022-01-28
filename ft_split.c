@@ -29,7 +29,7 @@ static size_t	ft_words_len(const char *s, char sep)
 	return (i);
 }
 
-static char	**ft_free(char **arr)
+static char	**free_arr(char **arr)
 {
 	size_t	i;
 
@@ -87,7 +87,7 @@ char	**ft_split(const char *s, char c)
 		--i;
 		arr[j] = ft_substr(s, i, ft_words_len(&s[i], c));
 		if (arr[j++] == NULL)
-			return (ft_free (arr));
+			return (free_arr(arr));
 		i += ft_words_len(&s[i], c);
 	}
 	arr[j] = 0;
