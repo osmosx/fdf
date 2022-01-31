@@ -31,8 +31,11 @@ int	key_hook(int key, t_fdf *data)
 		zoom(key, data);
 	if (key == ESC)
 		exit(0);
-	mlx_clear_window(data->mlx_ptr, data->win_ptr);
+//	mlx_clear_window(data->mlx_ptr, data->win_ptr);
+	ft_bzero(data->addr, data->scr_y * data->scr_x *
+						(data->bits_per_pixel / 8));
 	draw(data, data->matrix);
+
 	return (0);
 }
 

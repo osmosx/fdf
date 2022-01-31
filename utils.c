@@ -16,7 +16,7 @@ void	set_color(t_dot *matrix, char *z)
 	if (matrix->z > -1)
 		matrix->color = 0xdbffc9;
 	if (matrix->z == 0)
-		matrix->color = 0xdbffc9;
+		matrix->color = 0xe80c0c;
 	if (matrix->z > 1)
 		matrix->color = 0xfff9c9;
 	if (matrix->z > 3)

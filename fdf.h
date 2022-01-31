@@ -56,6 +56,7 @@ void	create_line(t_dot start, t_dot end, t_fdf *data);
 void	draw(t_fdf *data, t_dot **matrix);
 int		key_hook(int key, t_fdf *data);
 void	ft_free(char **arr);
+void	ft_bzero(void *str, size_t n);
 int		hex_to_dec(char *hex, long long decimal);
 void	set_color(t_dot *matrix, char *z);
 void	my_mlx_pixel_put(t_fdf *data, int x, int y, int color);
