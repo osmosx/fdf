@@ -6,9 +6,10 @@ SRCS	=	main.c \
 			read_file.c \
 			ft_split.c \
 			ft_atoi.c \
-			draw.c \
+			utils.c \
 			key_hook.c \
-			utils.c
+			draw.c \
+			init.c
 #
 HEADER	= fdf.h
 #

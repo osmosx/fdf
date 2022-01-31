@@ -45,35 +45,43 @@ int	get_width(char *file)
 	return (width);
 }
 
-void	fill_matrix(int *z, char *line)
+void	fill_matrix(t_dot *matrix, char *line, int y)
 {
-	int		i;
-	char	**nums;
+	int			x;
+	char		**dots;
+	char		**color;
+	long long	decimal;
 
-	nums = ft_split(line, ' ');
-	i = 0;
-	while (nums[i])
+	decimal = 0;
+	dots = ft_split(line, ' ');
+	x = 0;
+	while (dots[x])
 	{
-		z[i] = ft_atoi(nums[i]);
-		free(nums[i]);
-		i++;
+		if (ft_strlen(dots[x]) < 5)
+			set_color(&matrix[x], dots[x]);
+		else
+		{
+			color = ft_split(dots[x], ',');
+			matrix[x].z = ft_atoi(color[0]);
+			matrix[x].color = hex_to_dec(color[1], decimal);
+			ft_free(color);
+		}
+		matrix[x].y = y;
+		matrix[x].x = x;
+		x++;
 	}
-	free(nums);
+	ft_free(dots);
 }
 
 void	mem_alloc(t_fdf *data)
 {
 	int		i;
 
-	data->matrix = (int **)malloc(sizeof(int *) * (data->height + 1));
-	i = 0;
-	while (i <= data->height)
-		data->matrix[i++] = (int *)malloc(sizeof(int) * (data->width) + 1);
-	data->points = (t_dot **)malloc(sizeof(t_dot *) * (data->height + 1));
+	data->matrix = (t_dot **)malloc(sizeof(t_dot *) * (data->height + 1));
 	i = 0;
 	while (i <= data->height)
 	{
-		data->points[i] = (t_dot *)malloc(sizeof(t_dot) * (data->width + 1));
+		data->matrix[i] = (t_dot *)malloc(sizeof(t_dot) * (data->width + 1));
 		i++;
 	}
 }
@@ -81,6 +89,7 @@ void	mem_alloc(t_fdf *data)
 void	read_file(char *file_name, t_fdf *data)
 {
 	int		i;
+	int		y;
 	int		fd;
 	char	*line;
 
@@ -89,16 +98,12 @@ void	read_file(char *file_name, t_fdf *data)
 	mem_alloc(data);
 	fd = open(file_name, O_RDONLY);
 	i = 0;
-	while (1)
+	y = 0;
+	while (i < data->height)
 	{
 		line = get_next_line(fd);
-		if (line == NULL)
-			break ;
-		fill_matrix(data->matrix[i], line);
+		fill_matrix(data->matrix[i++], line, y++);
 		free(line);
-		i++;
 	}
-	free(line);
 	close(fd);
-	// Кажется тут что-то течет...
 }

@@ -32,7 +32,7 @@ int	key_hook(int key, t_fdf *data)
 	if (key == ESC)
 		exit(0);
 	mlx_clear_window(data->mlx_ptr, data->win_ptr);
-	draw(data);
+	draw(data, data->matrix);
 	return (0);
 }
 

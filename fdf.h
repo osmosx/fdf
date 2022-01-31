@@ -24,15 +24,14 @@ typedef struct s_dot
 {
 	float	x;
 	float	y;
-	int		alt;
+	int		z;
 	int		color;
 }	t_dot;
 
 typedef struct s_fdf {
 	int		width;
 	int		height;
-	int		**matrix;
-	t_dot	**points;
+	t_dot	**matrix;
 	int		zoom;
 	int		color;
 	int		shift_x;
@@ -40,6 +39,8 @@ typedef struct s_fdf {
 
 	void	*mlx_ptr;
 	void	*win_ptr;
+	int		scr_x;
+	int		scr_y;
 
 	void	*img;
 	char	*addr;
@@ -51,8 +52,15 @@ typedef struct s_fdf {
 void	read_file(char *file, t_fdf *data);
 char	**ft_split(char const *s, char c);
 int		ft_atoi(const char *str);
-void	create_line(float x, float y, float x1, float y1, t_fdf *data);
-void	draw(t_fdf *data);
+void	create_line(t_dot start, t_dot end, t_fdf *data);
+void	draw(t_fdf *data, t_dot **matrix);
 int		key_hook(int key, t_fdf *data);
 void	ft_free(char **arr);
+int		hex_to_dec(char *hex, long long decimal);
+void	set_color(t_dot *matrix, char *z);
+void	my_mlx_pixel_put(t_fdf *data, int x, int y, int color);
+void	init_img(t_fdf *data);
+void	isometric(t_dot *start, t_dot *end, int z, int z1);
+void	get_zoom(t_dot *a, t_dot *b, t_fdf *data);
+void	get_shift(t_dot *start, t_dot *end, t_fdf *data);
 #endif
