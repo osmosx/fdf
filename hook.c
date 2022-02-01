@@ -15,13 +15,13 @@
 int	move(int key, t_fdf *data)
 {
 	if (key == UP)
-		data->shift_y -= 20;
+		data->shift_y -= 35;
 	if (key == DOWN)
-		data->shift_y += 20;
+		data->shift_y += 35;
 	if (key == LEFT)
-		data->shift_x -= 20;
+		data->shift_x -= 35;
 	if (key == RIGHT)
-		data->shift_x += 20;
+		data->shift_x += 35;
 	return (0);
 }
 
@@ -34,6 +34,15 @@ int	zoom(int key, t_fdf *data)
 	return (0);
 }
 
+int	angle(int key, t_fdf *data)
+{
+	if (key == 25)
+		data->angle += 0.05;
+	if (key == 29)
+		data->angle -= 0.05;
+	return (0);
+}
+
 int	key_hook(int key, t_fdf *data)
 {
 	printf("%d\n", key);
@@ -41,10 +50,10 @@ int	key_hook(int key, t_fdf *data)
 		move(key, data);
 	if (key == ZOOM_UP || key == ZOOM_DOWN)
 		zoom(key, data);
+	if (key == ANGLE_DOWN || key == ANGLE_UP)
+		angle(key, data);
 	if (key == ESC)
 		exit(0);
-	ft_bzero(data->addr, data->scr_y * data->scr_x * \
-													(data->bits_per_pixel / 8));
 	draw(data, data->matrix);
 	return (0);
 }

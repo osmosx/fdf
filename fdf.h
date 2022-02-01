@@ -31,6 +31,8 @@
 # define ESC			53
 # define ZOOM_UP		24
 # define ZOOM_DOWN		27
+# define ANGLE_DOWN		25
+# define ANGLE_UP		29
 
 typedef struct s_dot
 {
@@ -46,6 +48,7 @@ typedef struct s_fdf {
 	t_dot	**matrix;
 	int		zoom;
 	int		color;
+	double	angle;
 	int		shift_x;
 	int		shift_y;
 
@@ -74,7 +77,8 @@ int		hex_to_dec(char *hex, long long decimal);
 void	set_color(t_dot *matrix, char *z);
 void	my_mlx_pixel_put(t_fdf *data, int x, int y, int color);
 void	init_img(t_fdf *data);
-void	isometric(t_dot *start, t_dot *end, int z, int z1);
+void	isometric(t_dot *start, t_dot *end, t_fdf *data);
 void	get_zoom(t_dot *a, t_dot *b, t_fdf *data);
 void	get_shift(t_dot *start, t_dot *end, t_fdf *data);
+int		error(char *error);
 #endif

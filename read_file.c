@@ -20,6 +20,8 @@ int	get_heigth(char *file)
 
 	heigth = 0;
 	fd = open(file, O_RDONLY, 0);
+	if (fd < 0)
+		error("File read error!");
 	while (1)
 	{
 		line = get_next_line(fd);
@@ -41,6 +43,8 @@ int	get_width(char *file)
 	char	**arr;
 
 	fd = open(file, O_RDONLY);
+	if (fd < 0)
+		error("File read error!");
 	width = 0;
 	while (fd)
 	{
@@ -76,13 +80,13 @@ void	fill_matrix(t_dot *matrix, char *line, int y)
 			color = ft_split(dots[x], ',');
 			matrix[x].z = ft_atoi(color[0]);
 			matrix[x].color = hex_to_dec(color[1], decimal);
-			ft_free(color);
+			free(color);
 		}
 		matrix[x].y = y;
 		matrix[x].x = x;
 		x++;
 	}
-	ft_free(dots);
+	free(dots);
 }
 
 void	mem_alloc(t_fdf *data)
@@ -90,10 +94,14 @@ void	mem_alloc(t_fdf *data)
 	int		i;
 
 	data->matrix = (t_dot **)malloc(sizeof(t_dot *) * (data->height + 1));
+	if (data->matrix == NULL)
+		error("Memory not allocated");
 	i = 0;
 	while (i <= data->height)
 	{
 		data->matrix[i] = (t_dot *)malloc(sizeof(t_dot) * (data->width + 1));
+		if (data->matrix[i] == NULL)
+			error("Memory not allocated");
 		i++;
 	}
 }
@@ -109,6 +117,8 @@ void	read_file(char *file_name, t_fdf *data)
 	data->width = get_width(file_name);
 	mem_alloc(data);
 	fd = open(file_name, O_RDONLY);
+	if (fd < 0)
+		error("File read error!");
 	i = 0;
 	y = 0;
 	while (i < data->height)

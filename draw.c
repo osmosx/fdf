@@ -12,7 +12,7 @@
 
 #include "fdf.h"
 
-static int	max_t(int x, int y)
+static float	max_t(float x, float y)
 {
 	float	max;
 
@@ -23,7 +23,7 @@ static int	max_t(int x, int y)
 	return (max);
 }
 
-static float	module(int i)
+static float	module(float i)
 {
 	if (i < 0)
 		i = -i;
@@ -37,7 +37,7 @@ void	create_line(t_dot start, t_dot end, t_fdf *data)
 	int		max;
 
 	get_zoom(&start, &end, data);
-	isometric(&start, &end, start.z, end.z);
+	isometric(&start, &end, data);
 	get_shift(&start, &end, data);
 	x_step = end.x - start.x;
 	y_step = end.y - start.y;
@@ -64,8 +64,9 @@ void	print_menu(t_fdf *data)
 	mlx = data->mlx_ptr;
 	win = data->win_ptr;
 	mlx_string_put(mlx, win, 65, y += 20, 0x88F403, "How to Use");
-	mlx_string_put(mlx, win, 15, y += 35, 0x88F403, "Zoom: +/-");
 	mlx_string_put(mlx, win, 15, y += 30, 0x88F403, "Move: Arrows");
+	mlx_string_put(mlx, win, 15, y += 30, 0x88F403, "Zoom: +/-");
+	mlx_string_put(mlx, win, 15, y += 30, 0x88F403, "Angle: 9/0");
 }
 
 void	draw(t_fdf *data, t_dot **matrix)
@@ -74,6 +75,8 @@ void	draw(t_fdf *data, t_dot **matrix)
 	int	y;
 
 	y = 0;
+	ft_bzero(data->addr, data->scr_y * data->scr_x * \
+													(data->bits_per_pixel / 8));
 	while (y < data->height)
 	{
 		x = 0;
@@ -83,8 +86,6 @@ void	draw(t_fdf *data, t_dot **matrix)
 				create_line(matrix[y][x], matrix[y][x + 1], data);
 			if (y < data->height - 1)
 				create_line(matrix[y][x], matrix[y + 1][x], data);
-			if (y < data->height - 1 && x < data->width - 1)
-				create_line(matrix[y][x], matrix[y + 1][x + 1], data);
 			x++;
 		}
 		y++;

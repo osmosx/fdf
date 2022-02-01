@@ -15,30 +15,28 @@
 void	set_color(t_dot *matrix, char *z)
 {
 	matrix->z = ft_atoi(z);
-	if (matrix->z <= -9)
-		matrix->color = 0xe5c9ff;
 	if (matrix->z > -9)
-		matrix->color = 0xc9d2ff;
+		matrix->color = 0xCC0000;
 	if (matrix->z > -7)
-		matrix->color = 0xc9e9ff;
+		matrix->color = 0x00FFFF;
 	if (matrix->z > -5)
-		matrix->color = 0xc9f8ff;
+		matrix->color = 0xFF0000;
 	if (matrix->z > -3)
-		matrix->color = 0xc9ffe0;
+		matrix->color = 0x00FF00;
 	if (matrix->z > -1)
-		matrix->color = 0xdbffc9;
+		matrix->color = 0x0000FF;
 	if (matrix->z == 0)
-		matrix->color = 0xe80c0c;
+		matrix->color = 0xFFFFFF;
 	if (matrix->z > 1)
-		matrix->color = 0xfff9c9;
+		matrix->color = 0x0000FF;
 	if (matrix->z > 3)
-		matrix->color = 0xffe2b0;
+		matrix->color = 0x00FF00;
 	if (matrix->z > 5)
-		matrix->color = 0xffd4b0;
+		matrix->color = 0xFF0000;
 	if (matrix->z > 7)
-		matrix->color = 0xffbdb0;
+		matrix->color = 0x00FFFF;
 	if (matrix->z > 9)
-		matrix->color = 0xffb0b0;
+		matrix->color = 0xCC0000;
 }
 
 int	hex_to_dec(char *hex, long long decimal)
@@ -70,12 +68,12 @@ int	hex_to_dec(char *hex, long long decimal)
 	return (decimal);
 }
 
-void	isometric(t_dot *start, t_dot *end, int z, int z1)
+void	isometric(t_dot *start, t_dot *end, t_fdf *data)
 {
-	start->x = (start->x - start->y) * cos(1.0);
-	start->y = (start->x + start->y) * sin(1.2) - z;
-	end->x = (end->x - end->y) * cos(1.0);
-	end->y = (end->x + end->y) * sin(1.2) - z1;
+	start->x = (start->x - start->y) * cos(data->angle);
+	start->y = (start->x + start->y) * sin(data->angle) - start->z;
+	end->x = (end->x - end->y) * cos(data->angle);
+	end->y = (end->x + end->y) * sin(data->angle) - end->z;
 }
 
 void	get_zoom(t_dot *a, t_dot *b, t_fdf *data)

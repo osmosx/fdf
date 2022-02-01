@@ -16,10 +16,10 @@ SRCS	=	main.c \
 			./gnl/get_next_line.c \
 			./gnl/get_next_line_utils.c \
 			read_file.c \
-			ft_split.c \
-			ft_atoi.c \
+			split.c \
+			minilib.c \
 			utils.c \
-			key_hook.c \
+			hook.c \
 			draw.c \
 			init.c
 #
