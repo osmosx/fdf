@@ -33,6 +33,8 @@
 # define ZOOM_DOWN		27
 # define ANGLE_DOWN		25
 # define ANGLE_UP		29
+# define Z_UP			28
+# define Z_DOWN			26
 
 typedef struct s_dot
 {
@@ -49,6 +51,7 @@ typedef struct s_fdf {
 	int		zoom;
 	int		color;
 	double	angle;
+	int		z_scale;
 	int		shift_x;
 	int		shift_y;
 

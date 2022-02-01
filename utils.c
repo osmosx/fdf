@@ -80,10 +80,10 @@ void	get_zoom(t_dot *a, t_dot *b, t_fdf *data)
 {
 	a->x *= data->zoom;
 	a->y *= data->zoom;
-	a->z *= (data->zoom / 15);
+	a->z *= (data->z_scale);
 	b->x *= data->zoom;
 	b->y *= data->zoom;
-	b->z *= (data->zoom / 15);
+	b->z *= data->z_scale;
 }
 
 void	get_shift(t_dot *start, t_dot *end, t_fdf *data)

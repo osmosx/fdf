@@ -43,6 +43,15 @@ int	angle(int key, t_fdf *data)
 	return (0);
 }
 
+int	z_scale(int key, t_fdf *data)
+{
+	if (key == Z_UP)
+		data->z_scale += 1;
+	if (key == Z_DOWN)
+		data->z_scale -= 1;
+	return (0);
+}
+
 int	key_hook(int key, t_fdf *data)
 {
 	printf("%d\n", key);
@@ -52,6 +61,8 @@ int	key_hook(int key, t_fdf *data)
 		zoom(key, data);
 	if (key == ANGLE_DOWN || key == ANGLE_UP)
 		angle(key, data);
+	if (key == Z_UP || key == Z_DOWN)
+		z_scale(key, data);
 	if (key == ESC)
 		exit(0);
 	draw(data, data->matrix);

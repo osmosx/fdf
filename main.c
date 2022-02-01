@@ -15,6 +15,7 @@
 void	first_init(t_fdf *data)
 {
 	data->zoom = 20;
+	data->z_scale = 1;
 	data->shift_y = 250;
 	data->shift_x = 900;
 	data->scr_x = WIDTH;
