@@ -63,11 +63,11 @@ void	print_menu(t_fdf *data)
 	y = 0;
 	mlx = data->mlx_ptr;
 	win = data->win_ptr;
-	mlx_string_put(mlx, win, 65, y += 20, 0x88F403, "How to Use");
-	mlx_string_put(mlx, win, 15, y += 30, 0x88F403, "Move: <-/->");
-	mlx_string_put(mlx, win, 15, y += 30, 0x88F403, "Zoom: +/-");
-	mlx_string_put(mlx, win, 15, y += 30, 0x88F403, "Rotate: 0/9");
-	mlx_string_put(mlx, win, 15, y += 30, 0x88F403, "Z_Scale: 8/7");
+	mlx_string_put(mlx, win, 65, y += 20, 0x88F403, "how to use");
+	mlx_string_put(mlx, win, 15, y += 30, 0x88F403, "move: <-/->");
+	mlx_string_put(mlx, win, 15, y += 30, 0x88F403, "zoom: +/-");
+	mlx_string_put(mlx, win, 15, y += 30, 0x88F403, "rotate: 0/9");
+	mlx_string_put(mlx, win, 15, y += 30, 0x88F403, "z_scale: 8/7");
 }
 
 void	draw(t_fdf *data, t_dot **matrix)
