@@ -35,6 +35,8 @@
 # define ANGLE_UP		29
 # define Z_UP			28
 # define Z_DOWN			26
+# define ISO_ON			22
+# define ISO_OFF		23
 
 typedef struct s_dot
 {
@@ -52,6 +54,7 @@ typedef struct s_fdf {
 	int		color;
 	double	angle;
 	int		z_scale;
+	int		flag;
 	int		shift_x;
 	int		shift_y;
 

@@ -21,6 +21,7 @@ void	first_init(t_fdf *data)
 	data->scr_x = WIDTH;
 	data->scr_y = HEIGHT;
 	data->angle = 0.8;
+	data->flag = 1;
 }
 
 int	main(int argc, char **argv)

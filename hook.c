@@ -63,6 +63,10 @@ int	key_hook(int key, t_fdf *data)
 		angle(key, data);
 	if (key == Z_UP || key == Z_DOWN)
 		z_scale(key, data);
+	if (key == ISO_ON)
+		data->flag = 1;
+	if (key == ISO_OFF)
+		data->flag = 0;
 	if (key == ESC)
 		exit(0);
 	draw(data, data->matrix);

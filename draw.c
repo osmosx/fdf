@@ -37,7 +37,8 @@ void	create_line(t_dot start, t_dot end, t_fdf *data)
 	int		max;
 
 	get_zoom(&start, &end, data);
-	isometric(&start, &end, data);
+	if (data->flag)
+		isometric(&start, &end, data);
 	get_shift(&start, &end, data);
 	x_step = end.x - start.x;
 	y_step = end.y - start.y;
@@ -70,6 +71,7 @@ void	print_menu(t_fdf *data)
 	mlx_string_put(mlx, win, 15, y += 30, 0x88F403, "zoom: +/-");
 	mlx_string_put(mlx, win, 15, y += 30, 0x88F403, "rotate: 0/9");
 	mlx_string_put(mlx, win, 15, y += 30, 0x88F403, "z_scale: 8/7");
+	mlx_string_put(mlx, win, 15, y += 30, 0x88F403, "isometric on/off: 6/5");
 }
 
 void	draw(t_fdf *data, t_dot **matrix)
