@@ -44,6 +44,8 @@ void	create_line(t_dot start, t_dot end, t_fdf *data)
 	max = max_t(module(x_step), module(y_step));
 	x_step /= max;
 	y_step /= max;
+	if (start.z < end.z)
+		start.color = end.color;
 	while ((int)(start.x - end.x) || (int)(start.y - end.y))
 	{
 		if ((int)start.x < data->scr_x && (int)start.y < data->scr_y
