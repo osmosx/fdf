@@ -26,7 +26,7 @@ void	set_color(t_dot *matrix, char *z)
 	if (matrix->z > -1)
 		matrix->color = 0x0000FF;
 	if (matrix->z == 0)
-		matrix->color = 0xFFFFFF;
+		matrix->color = 0x00FF00;
 	if (matrix->z > 1)
 		matrix->color = 0x0000FF;
 	if (matrix->z > 3)
@@ -80,10 +80,10 @@ void	get_zoom(t_dot *a, t_dot *b, t_fdf *data)
 {
 	a->x *= data->zoom;
 	a->y *= data->zoom;
-	a->z *= (data->zoom / 10);
+	a->z *= (data->zoom / 15);
 	b->x *= data->zoom;
 	b->y *= data->zoom;
-	b->z *= (data->zoom / 10);
+	b->z *= (data->zoom / 15);
 }
 
 void	get_shift(t_dot *start, t_dot *end, t_fdf *data)

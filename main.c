@@ -14,12 +14,12 @@
 
 void	first_init(t_fdf *data)
 {
-	data->zoom = 32;
+	data->zoom = 20;
 	data->shift_y = 250;
 	data->shift_x = 900;
 	data->scr_x = WIDTH;
 	data->scr_y = HEIGHT;
-	data->angle = 0.523599;
+	data->angle = 0.8;
 }
 
 int	main(int argc, char **argv)

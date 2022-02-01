@@ -64,9 +64,9 @@ void	print_menu(t_fdf *data)
 	mlx = data->mlx_ptr;
 	win = data->win_ptr;
 	mlx_string_put(mlx, win, 65, y += 20, 0x88F403, "How to Use");
-	mlx_string_put(mlx, win, 15, y += 30, 0x88F403, "Move: Arrows");
+	mlx_string_put(mlx, win, 15, y += 30, 0x88F403, "Move: <-/->");
 	mlx_string_put(mlx, win, 15, y += 30, 0x88F403, "Zoom: +/-");
-	mlx_string_put(mlx, win, 15, y += 30, 0x88F403, "Angle: 9/0");
+	mlx_string_put(mlx, win, 15, y += 30, 0x88F403, "Rotate: 9/0");
 }
 
 void	draw(t_fdf *data, t_dot **matrix)
