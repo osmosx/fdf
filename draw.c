@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   draw.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nenvoy <nenvoy@student.21-school.ru>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/01 13:21:13 by nenvoy            #+#    #+#             */
+/*   Updated: 2022/02/01 13:22:39 by nenvoy           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fdf.h"
 
 static int	max_t(int x, int y)
@@ -42,6 +54,20 @@ void	create_line(t_dot start, t_dot end, t_fdf *data)
 	}
 }
 
+void	print_menu(t_fdf *data)
+{
+	int		y;
+	void	*mlx;
+	void	*win;
+
+	y = 0;
+	mlx = data->mlx_ptr;
+	win = data->win_ptr;
+	mlx_string_put(mlx, win, 65, y += 20, 0x88F403, "How to Use");
+	mlx_string_put(mlx, win, 15, y += 35, 0x88F403, "Zoom: +/-");
+	mlx_string_put(mlx, win, 15, y += 30, 0x88F403, "Move: Arrows");
+}
+
 void	draw(t_fdf *data, t_dot **matrix)
 {
 	int	x;
@@ -64,4 +90,5 @@ void	draw(t_fdf *data, t_dot **matrix)
 		y++;
 	}
 	mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img, 0, 0);
+	print_menu(data);
 }

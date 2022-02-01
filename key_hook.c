@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   key_hook.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nenvoy <nenvoy@student.21-school.ru>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/01 13:23:57 by nenvoy            #+#    #+#             */
+/*   Updated: 2022/02/01 13:24:47 by nenvoy           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fdf.h"
 
 int	move(int key, t_fdf *data)
@@ -31,11 +43,8 @@ int	key_hook(int key, t_fdf *data)
 		zoom(key, data);
 	if (key == ESC)
 		exit(0);
-//	mlx_clear_window(data->mlx_ptr, data->win_ptr);
-	ft_bzero(data->addr, data->scr_y * data->scr_x *
-						(data->bits_per_pixel / 8));
+	ft_bzero(data->addr, data->scr_y * data->scr_x * \
+													(data->bits_per_pixel / 8));
 	draw(data, data->matrix);
-
 	return (0);
 }
-

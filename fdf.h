@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   fdf.h                                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nenvoy <nenvoy@student.21-school.ru>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/01 13:21:54 by nenvoy            #+#    #+#             */
+/*   Updated: 2022/02/01 13:22:02 by nenvoy           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef FDF_H
 # define FDF_H
 
@@ -53,6 +65,7 @@ void	read_file(char *file, t_fdf *data);
 char	**ft_split(char const *s, char c);
 int		ft_atoi(const char *str);
 void	create_line(t_dot start, t_dot end, t_fdf *data);
+void	print_menu(t_fdf *data);
 void	draw(t_fdf *data, t_dot **matrix);
 int		key_hook(int key, t_fdf *data);
 void	ft_free(char **arr);
