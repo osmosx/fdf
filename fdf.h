@@ -19,7 +19,7 @@
 # include <math.h>
 # include <fcntl.h>
 # include "mlx/mlx.h"
-# include "gnl/get_next_line.h"
+# include "get_next_line.h"
 
 # define WIDTH			1920
 # define HEIGHT			1080

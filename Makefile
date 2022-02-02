@@ -10,36 +10,40 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME	= fdf
+SRC = 	main.c get_next_line.c get_next_line_utils.c read_file.c \
+      	split.c minilib.c utils.c hook.c draw.c menu.c init.c
 #
-SRCS	=	main.c \
-			./gnl/get_next_line.c \
-			./gnl/get_next_line_utils.c \
-			read_file.c \
-			split.c \
-			minilib.c \
-			utils.c \
-			hook.c \
-			draw.c \
-			menu.c \
-			init.c
+OBJ = $(SRC:.c=.o)
 #
-HEADER	= fdf.h
+SRC_BONUS = main.c get_next_line.c get_next_line_utils.c read_file.c \
+                  	split.c minilib.c utils.c hook.c draw.c menu.c init.c
 #
-FLAGS	= -Wall -Werror -Wextra -Lmlx -lmlx -framework OpenGL -framework AppKit
+OBJ_BONUS = $(SRC_BONUS:.c=.o)
 #
-.PHONY : all clean fclean re
+CC_FLAGS = -Wall -Werror -Wextra
+#
+MLX_FLAGS = -lmlx -framework OpenGL -framework AppKit
+MATH_FLAGS = -lm
+#
+NAME = fdf
 #
 all: $(NAME)
 #
-$(NAME) : $(SRCS) $(HEADER)
-	@$(CC) $(FLAGS) $(SRCS) -o $(NAME)
+$(NAME): $(OBJ)
+	@$(CC) $(CC_FLAGS) $(MATH_FLAGS) $(MLX_FLAGS) $(OBJ) -o $@
 	@echo "\033[32m\033[40m\033[1m[fdf compiled]"
 #
+%.o: %.c
+	@$(CC) $(CC_FLAGS) -c $<
+#
+bonus: $(OBJ_BONUS)
+	$(CC) $(CC_FLAGS) $(MATH_FLAGS) $(MLX_FLAGS) $(OBJ_BONUS) -o $(NAME)
+#
 clean:
-		@$(RM) $(NAME)
-		@echo "\033[31m\033[40m\033[1m[all clean]"
+	@rm -rf $(OBJ) $(OBJ_BONUS)
+	@echo "\033[31m\033[40m\033[1m[all clean]"
 #
 fclean: clean
+	@rm -rf $(NAME)
 #
 re: fclean all
