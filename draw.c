@@ -12,7 +12,7 @@
 
 #include "fdf.h"
 
-static float	max_t(float x, float y)
+static float	max_step(float x, float y)
 {
 	float	max;
 
@@ -42,7 +42,7 @@ void	create_line(t_dot start, t_dot end, t_fdf *data)
 	get_shift(&start, &end, data);
 	x_step = end.x - start.x;
 	y_step = end.y - start.y;
-	max = max_t(module(x_step), module(y_step));
+	max = max_step(module(x_step), module(y_step));
 	x_step /= max;
 	y_step /= max;
 	if (start.z < end.z)
@@ -55,23 +55,6 @@ void	create_line(t_dot start, t_dot end, t_fdf *data)
 		start.x += x_step;
 		start.y += y_step;
 	}
-}
-
-void	print_menu(t_fdf *data)
-{
-	int		y;
-	void	*mlx;
-	void	*win;
-
-	y = 0;
-	mlx = data->mlx_ptr;
-	win = data->win_ptr;
-	mlx_string_put(mlx, win, 65, y += 20, 0x88F403, "how to use");
-	mlx_string_put(mlx, win, 15, y += 30, 0x88F403, "move: <-/->");
-	mlx_string_put(mlx, win, 15, y += 30, 0x88F403, "zoom: +/-");
-	mlx_string_put(mlx, win, 15, y += 30, 0x88F403, "rotate: 0/9");
-	mlx_string_put(mlx, win, 15, y += 30, 0x88F403, "z_scale: 8/7");
-	mlx_string_put(mlx, win, 15, y += 30, 0x88F403, "isometric on/off: 6/5");
 }
 
 void	draw(t_fdf *data, t_dot **matrix)

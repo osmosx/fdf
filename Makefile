@@ -21,11 +21,12 @@ SRCS	=	main.c \
 			utils.c \
 			hook.c \
 			draw.c \
+			menu.c \
 			init.c
 #
 HEADER	= fdf.h
 #
-FLAGS	= -Wall -Werror -Wextra -g -Lmlx -lmlx -framework OpenGL -framework AppKit
+FLAGS	= -Wall -Werror -Wextra -Lmlx -lmlx -framework OpenGL -framework AppKit
 #
 .PHONY : all clean fclean re
 #

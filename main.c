@@ -16,11 +16,12 @@ void	first_init(t_fdf *data)
 {
 	data->zoom = 30;
 	data->z_scale = 2;
-	data->shift_y = 300;
+	data->shift_y = 250;
 	data->shift_x = 900;
 	data->scr_x = WIDTH;
 	data->scr_y = HEIGHT;
-	data->angle = 0.8;
+	data->angle_cos = 0.8;
+	data->angle_sin = 0.8;
 	data->flag = 1;
 }
 

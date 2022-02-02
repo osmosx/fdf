@@ -31,12 +31,15 @@
 # define ESC			53
 # define ZOOM_UP		24
 # define ZOOM_DOWN		27
-# define ANGLE_DOWN		25
-# define ANGLE_UP		29
-# define Z_UP			28
-# define Z_DOWN			26
-# define ISO_ON			22
-# define ISO_OFF		23
+# define ANGLE_COS_DOWN	1
+# define ANGLE_COS_UP	0
+# define ANGLE_SIN_DOWN	2
+# define ANGLE_SIN_UP	3
+# define Z_UP			13
+# define Z_DOWN			12
+# define ISO_ON			18
+# define ISO_OFF		19
+# define RESET			48
 
 typedef struct s_dot
 {
@@ -52,8 +55,9 @@ typedef struct s_fdf {
 	t_dot	**matrix;
 	int		zoom;
 	int		color;
-	double	angle;
-	int		z_scale;
+	double	angle_cos;
+	double	angle_sin;
+	double	z_scale;
 	int		flag;
 	int		shift_x;
 	int		shift_y;
@@ -70,6 +74,7 @@ typedef struct s_fdf {
 	int		endian;
 }	t_fdf;
 
+void	first_init(t_fdf *data);
 void	read_file(char *file, t_fdf *data);
 char	**ft_split(char const *s, char c);
 int		ft_atoi(const char *str);

@@ -30,7 +30,6 @@ int	get_heigth(char *file)
 		free(line);
 		heigth++;
 	}
-	free(line);
 	close(fd);
 	return (heigth);
 }
@@ -61,34 +60,6 @@ int	get_width(char *file)
 	return (width);
 }
 
-void	fill_matrix(t_dot *matrix, char *line, int y)
-{
-	int			x;
-	char		**dots;
-	char		**color;
-	long long	decimal;
-
-	decimal = 0;
-	dots = ft_split(line, ' ');
-	x = 0;
-	while (dots[x])
-	{
-		if (ft_strlen(dots[x]) < 5)
-			set_color(&matrix[x], dots[x]);
-		else
-		{
-			color = ft_split(dots[x], ',');
-			matrix[x].z = ft_atoi(color[0]);
-			matrix[x].color = hex_to_dec(color[1], decimal);
-			free(color);
-		}
-		matrix[x].y = y;
-		matrix[x].x = x;
-		x++;
-	}
-	free(dots);
-}
-
 void	mem_alloc(t_fdf *data)
 {
 	int		i;
@@ -104,6 +75,34 @@ void	mem_alloc(t_fdf *data)
 			error("Memory not allocated");
 		i++;
 	}
+}
+
+void	fill_matrix(t_dot *matrix, char *line, int y)
+{
+	int			x;
+	long long	i;
+	char		**dots;
+	char		**color;
+
+	dots = ft_split(line, ' ');
+	x = 0;
+	i = 0;
+	while (dots[x])
+	{
+		if (ft_strlen(dots[x]) < 5)
+			set_color(&matrix[x], dots[x]);
+		else
+		{
+			color = ft_split(dots[x], ',');
+			matrix[x].z = ft_atoi(color[0]);
+			matrix[x].color = hex_to_dec(color[1], i);
+			ft_free(color);
+		}
+		matrix[x].y = y;
+		matrix[x].x = x;
+		x++;
+	}
+	ft_free(dots);
 }
 
 void	read_file(char *file_name, t_fdf *data)
