@@ -42,7 +42,7 @@ void	print_menu(t_fdf *data)
 	mlx_string_put(mlx, win, 15, y += 30, 0x88F403, "Move: <- / ->");
 	mlx_string_put(mlx, win, 15, y += 30, 0x88F403, "Zoom: + / -");
 	mlx_string_put(mlx, win, 15, y += 30, 0x88F403, "Scale: Q / W");
-	mlx_string_put(mlx, win, 15, y += 30, 0x88F403, "Rotate: 0/9");
+	mlx_string_put(mlx, win, 15, y += 30, 0x88F403, "Rotate: 0 / 9");
 	mlx_string_put(mlx, win, 15, y += 30, 0x88F403, "ISO ON/OFF: 1 / 2");
 	mlx_string_put(mlx, win, 15, y += 30, 0x88F403, "Reset: TAB");
 	mlx_string_put(mlx, win, 15, y += 30, 0x88F403, "Exit: ESC");
