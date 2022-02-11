@@ -1,6 +1,14 @@
 # fdf
-#### It is a project to learn about 3d programming. The program takes a map as parameter and creates its 3d representation. MiniLibX library required
-[minilibx tutorial](https://harm-smits.github.io/42docs/libs/minilibx)
+#### It is a project to learn about 3d programming. The program takes a map as parameter and creates its 3d representation. MiniLibX library required.
+
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;In this project you will discover the basics of graphic programming, and in particular how
+to place points in space, how to join them with segments and most importantly how to
+observe the scene from a particular viewpoint.
+
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;You will also discover your first graphic library: [minilibx](https://harm-smits.github.io/42docs/libs/minilibx). This library was developed
+internally and includes the minimum necessary to open a window, light a pixel and deal
+with events linked to this window: keyboard and mouse. This project introduces you to
+“events” programming. -pedago@42.fr
 #
 ![fdf](https://github.com/osmosx/fdf/blob/master/img/fdf.png)
 #
