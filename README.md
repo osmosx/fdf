@@ -1,5 +1,6 @@
 # fdf
-#### It is a project to learn about 3d programming. The program takes a map as parameter and creates its 3d representation. mlx library required.
+#### It is a project to learn about 3d programming. The program takes a map as parameter and creates its 3d representation. MiniLibX library required
+[minilibx tutorial](https://harm-smits.github.io/42docs/libs/minilibx)
 #
 ![fdf](https://github.com/osmosx/fdf/blob/master/img/fdf.png)
 #
