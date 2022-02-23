@@ -12,7 +12,7 @@ with events linked to this window: keyboard and mouse. This project introduces y
 #
 ![fdf](https://github.com/osmosx/fdf/blob/master/img/fdf.png)
 #
-### usage
+### Usage
 Running `make` to generate the fdf executable. You can run the program with `./fdf [valid_fdf_file]`.
 
 A valid fdf file will consist of a matrix of number delimited by spaces. Each number's position represents an (x , y) coordinate with the value of the number itself representing a height (z).
